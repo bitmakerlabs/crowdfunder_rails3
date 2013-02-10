@@ -17,7 +17,23 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
   	assert page.has_content?('Project 1')
   	assert page.has_content?('Project 2')
   	assert page.has_content?('Project 3')
+	end
+
+	test "navigation" do
+		visit "/"
+		assert_equal root_path, current_path
+		# The home nav element should be active
+		assert_equal "Home", find('.navbar ul li.active a').text
+
+		find('.navbar ul').click_link('Projects') # more specific: 
+		assert_equal projects_path, current_path
+
+		# The projects nav element should be active
+		assert_equal "Projects", find('.navbar ul li.active a').text
+
 
 	end
+
+
 
 end
