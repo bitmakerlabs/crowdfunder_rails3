@@ -12,6 +12,15 @@
           </li>
         </ul>
       </div><!--/.nav-collapse -->
+
+      <div class="pull-right">
+        <% if logged_in? %>
+          <%= link_to 'Logout', '#', class: 'btn' %>
+        <% else %>
+          <%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>
