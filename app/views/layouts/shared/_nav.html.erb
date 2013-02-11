@@ -15,9 +15,10 @@
 
       <div class="pull-right">
         <% if logged_in? %>
-          <%= link_to 'Logout', '#', class: 'btn' %>
+          <%= link_to 'Logout', :session, :method => :delete, class: 'btn' %>
         <% else %>
           <%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+          <%= link_to 'Sign In', [:new, :session], class: 'btn btn-success' %>
         <% end %>
       </div>
 
