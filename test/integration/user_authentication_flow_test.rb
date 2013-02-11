@@ -33,6 +33,9 @@ class UserAuthenticationFlowTest < ActionDispatch::IntegrationTest
 		click_button "Create Account"
 		assert_equal users_path, current_path
 		assert page.has_no_content?("Account created")
+		
+		# Should see some sort of error message on failure to register 
+		assert find('.alert:first').has_content?("Try again")
   end
 
   test "logout" do 

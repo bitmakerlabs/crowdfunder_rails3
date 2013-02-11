@@ -7,6 +7,18 @@
 <%= form_for @user do |f| %>
 
 	<div class="span6">
+
+		<% unless f.object.errors.empty? %>
+			<div class="alert alert-error">
+				<strong>Try again after fixing the following things:</strong><br/>
+				<ul>
+					<% f.object.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
 		<%= f.text_field :first_name, placeholder: "First Name", class: "input-block-level" %>
 		<%= f.text_field :last_name, placeholder: "Last Name", class: "input-block-level" %>
 
