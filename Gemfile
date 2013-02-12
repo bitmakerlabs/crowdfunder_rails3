@@ -34,13 +34,11 @@ group :development do
 	gem 'pry-rails'
 end
 
-
 group :test do 
 	gem "factory_girl_rails"
 	gem "database_cleaner"
 	gem "capybara"
 	gem "capybara-webkit"
-	gem 'rb-fsevent', :require => false
 end
 
 # To use ActiveModel has_secure_password
