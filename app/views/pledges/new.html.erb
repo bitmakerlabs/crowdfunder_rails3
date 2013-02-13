@@ -1,0 +1,14 @@
+<h1>Pledge For <%= @project.title %></h1>
+
+<%= form_for [@project, @pledge] do |f| %>
+	
+	<%= render 'shared/form_errors', :f => f %>
+	
+	<%= f.label :amount %>
+	<%= f.text_field :amount %>
+
+	<div class="form-actions">
+		<%= f.submit 'Pledge Now', :class => 'btn' %>
+	</div>
+
+<% end %>

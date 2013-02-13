@@ -12,6 +12,10 @@ class ActiveSupport::TestCase
   #fixtures :all 
 
   # Add more helper methods to be used by all tests here...
+
+  teardown do 
+    DatabaseCleaner.clean
+  end
 end
 
 DatabaseCleaner.strategy = :truncation
@@ -42,6 +46,7 @@ class ActionDispatch::IntegrationTest
   	click_button "Login"
 
   	# No asserts here since we are not TESTING login here, leave that to the user flow tests
+    user
   end
 
 end
