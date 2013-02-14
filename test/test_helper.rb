@@ -29,6 +29,10 @@ class ActionDispatch::IntegrationTest
 
   self.use_transactional_fixtures = false 
 
+  setup do
+    reset_email
+  end
+
   teardown do
   	DatabaseCleaner.clean       # Truncate the database
     Capybara.reset_sessions!    # Forget the (simulated) browser state
@@ -47,6 +51,14 @@ class ActionDispatch::IntegrationTest
 
   	# No asserts here since we are not TESTING login here, leave that to the user flow tests
     user
+  end
+
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+
+  def reset_email
+    ActionMailer::Base.deliveries = []
   end
 
 end

@@ -1,0 +1,19 @@
+<p>
+	Hey <%= @user.name %>,
+</p>
+
+<p>
+	Good news. 
+	Your project <%= link_to @project.title, project_url(@project) %> 
+	was just backed by <em><%= @backer.name %></em> 
+	for <strong><%= number_to_currency @pledge.amount %></strong>.
+</p>
+
+<hr/>
+
+<p>
+	Best of luck!
+	<br/>
+	CrowdFunder team.
+</p>
+
