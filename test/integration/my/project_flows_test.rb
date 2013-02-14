@@ -43,6 +43,24 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 		assert_equal my_projects_path, current_path
 	end
 
+	test "can delete my project" do 
+		Capybara.current_driver = Capybara.javascript_driver
+
+		me = setup_signed_in_user
+		project = FactoryGirl.create :project, user: me
+
+		visit edit_my_project_path(project)
+
+		assert has_link?("Delete Project")
+		click_link 'Delete Project'
+
+		page.driver.accept_js_confirms! # Warning: this is specific to webkit driver
+
+		assert page.has_content? ('deleted')
+
+		assert_nil Project.find_by_id(project.id)
+	end
+
 	test "navigation" do 
 		user = setup_signed_in_user
 
@@ -59,9 +77,6 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
     click_link 'New Project'
 		assert_equal new_my_project_path, current_path
     assert_equal "My Projects", find('.navbar ul li.active a').text
-
 	end
-
-
 
 end

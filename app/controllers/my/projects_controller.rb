@@ -31,6 +31,11 @@ class My::ProjectsController < ApplicationController
   	end
   end
 
+  def destroy
+    @project.destroy
+    redirect_to [:my, :projects], notice: "Project deleted"
+  end
+
   protected
 
   def require_project
