@@ -1,5 +1,9 @@
-<h1>Listing projects</h1>
+<h1>Projects <small><%= page_entries_info @projects %></small></h1>
+
+<hr/>
 
 <ul>
 	<%= render @projects %>
 </ul>
+
+<%= paginate @projects %>

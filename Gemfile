@@ -22,6 +22,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :tools do
 	gem 'rb-fsevent', :require => false 
