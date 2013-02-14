@@ -10,6 +10,14 @@
           <li class="<%= 'active' if controller_name == 'projects' %>">
             <%= link_to 'Projects', :projects %>
           </li>
+
+          <% if logged_in? %>
+            <li class="divider-vertical"></li>
+            <li class="<%= 'active' if controller_name == 'projects' %>">
+              <%= link_to 'My Projects', [:my, :projects] %>
+            <li>
+          <% end %>
+
         </ul>
       </div><!--/.nav-collapse -->
 

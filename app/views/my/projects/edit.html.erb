@@ -1,0 +1,22 @@
+<h1>Edit <%= @project.title %></h1>
+
+<hr/>
+
+<div class="well">
+	<%= link_to [:my, :projects], :class => 'btn btn-small' do %>
+		&laquo; My Projects
+	<% end %>
+</div>
+
+<%= form_for [:my, @project] do |f| %>
+
+	<%= render 'shared/form_errors', :f => f %>
+
+	<%# Automatically detects that we are trying to render a form and looks for _form template %>
+	<%= render f %>
+
+	<div class="form-actions">
+		<%= f.submit 'Update Project', class: 'btn' %>
+	</div>
+
+<% end %>

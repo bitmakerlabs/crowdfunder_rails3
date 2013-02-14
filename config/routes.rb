@@ -7,6 +7,10 @@ Crowdfunder::Application.routes.draw do
     resources :pledges, only: [:new, :create]
   end
 
+  namespace :my do 
+    resources :projects # => My::ProjectsController
+  end
+
   resources :users, except: [:index]
 
   # Sign in and sign out actions
