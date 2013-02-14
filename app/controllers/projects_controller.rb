@@ -8,4 +8,10 @@ class ProjectsController < ApplicationController
 		@project = Project.find params[:id]
 	end
 
+  protected
+
+  def nav_state
+  	@nav = :projects
+  end
+
 end

@@ -43,5 +43,25 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 		assert_equal my_projects_path, current_path
 	end
 
+	test "navigation" do 
+		user = setup_signed_in_user
+
+		visit '/'
+
+		find('.navbar ul').click_link('My Projects') # more specific: 
+		assert_equal my_projects_path, current_path
+
+		# ONLY the "My Projects" nav element should be active here
+		assert_equal "My Projects", find('.navbar ul li.active a').text
+		page.assert_selector '.navbar ul li.active a', count: 1
+
+    # On the new project page, the nav element should still be active!
+    click_link 'New Project'
+		assert_equal new_my_project_path, current_path
+    assert_equal "My Projects", find('.navbar ul li.active a').text
+
+	end
+
+
 
 end
