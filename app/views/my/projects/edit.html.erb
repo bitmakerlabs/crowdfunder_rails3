@@ -6,6 +6,8 @@
 	<%= link_to [:my, :projects], :class => 'btn btn-small' do %>
 		&laquo; My Projects
 	<% end %>
+
+	<%= link_to 'Manage Images', [:my, @project, :images], :class => 'btn btn-small btn-primary pull-right' %>
 </div>
 
 <%= form_for [:my, @project] do |f| %>

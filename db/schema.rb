@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211225956) do
+ActiveRecord::Schema.define(:version => 20130214113354) do
+
+  create_table "images", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "file"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "images", ["project_id"], :name => "index_images_on_project_id"
 
   create_table "pledges", :force => true do |t|
     t.integer  "user_id"

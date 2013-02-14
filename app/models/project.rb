@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   has_many :pledges
+  has_many :images, dependent: :destroy
 
   validates :title, presence: true, length: {maximum: 100}
   validates :teaser, presence: true, length: {maximum: 255}

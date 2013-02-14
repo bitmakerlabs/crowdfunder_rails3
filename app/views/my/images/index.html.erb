@@ -1,0 +1,24 @@
+<h1><%= @project.title %> &raquo; Images</h1>
+
+<hr/>
+
+<div class="well">
+	<%= link_to [:edit, :my, @project], :class => 'btn btn-small' do %>
+		&laquo; Edit Project
+	<% end %>
+</div>
+
+<h4>Add Image</h4>
+<%= form_for [:my, @project, @image] do |f| %>
+	<%= render 'shared/form_errors', :f => f %>
+	<%= f.file_field :file %>
+	<%= f.submit 'Upload Image', class: 'btn' %>
+<% end %>
+
+<hr/>
+
+<h4>This Project has <%= @images.count %> Images</h4>
+
+<ul class="thumbnails">
+	<%= render @images %>
+</ul>
