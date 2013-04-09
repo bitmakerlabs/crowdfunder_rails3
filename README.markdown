@@ -5,7 +5,7 @@ CrowdFunder is Rails 3 app that allows users to pledge against existing projects
 Users will be able to search for projects. Project owners will be able to upload images to their project.
 
 
-Core Cocepts
+Core Concepts
 ------------
 
 TDD using Guard and mostly Integration Tests  
